@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <main>
+        <fieldset class="formulario">
+            <legend>Formulario</legend>
+
+            <form action="#">
+                <div class="formulario__campo">
+                    <label for="">Nombre</label>
+                    <input type="text" type="text" id="nombre">
+                </div>
+                
+                <div class="formulario__campo">
+                    <label for="">Edad</label>
+                    <input type="text" type="number" id="edad">
+                </div>
+
+                <div class="formulario__campo">
+                    <label for="">Ingresos mensuales</label>
+                    <input type="text" type="number" id="ingresos">
+                </div>
+                
+                <div class="formulario__campo">
+                    <label for="">Miembros de su familia</label>
+                    <input type="text" type="number" id="familia">
+                </div>
+
+                <input type="submit" class="formulario__campo" id="enviar">
+            </form>
+        </fieldset>
+
+        <h3></h3>
+        <p></p>
+        <h3></h3>
+        <p></p>
+        <fieldset class="resultados">
+            <legend>Beneficiarios</legend>
+
+            <div class="resultados__boton">
+                <button id="boton">Menores de $200</button>
+            </div>
+            <div class="resultados__elemento">
+                <h3>No.</h3>
+                <h3>Nombre</h3>
+                <h3>Edad</h3>
+                <h3>Ingresos</h3>
+                <h3>Familia</h3>
+            </div>
+            <div id="resultados">
+
+            </div>
+        </fieldset>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
