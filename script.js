@@ -19,12 +19,19 @@ document.addEventListener("DOMContentLoaded", function(){ //Cuando el documento 
         const ingresos = document.getElementById("ingresos").value;
         const familia = document.getElementById("familia").value;
 
-        //Se crea un objeto en base a los valores de los campos
-        const usuario = {nombre, edad, ingresos, familia}
-        datos.push(usuario); //Se añade el formulario al arreglo de beneficiarios
         
-        localStorage.setItem("database", JSON.stringify(datos)); //Se guarda el arreglo en el localStorage para que persistan los datos, incluso cuando se cierre el navegador
-        printResults(datos); //Se imprime el arreglo de beneficiarios
+        if(nombre != "" && edad != "" && ingresos != "" && familia != ""){ //Si se mandan datos se procede con el registro
+            //Se crea un objeto en base a los valores de los campos
+            const usuario = {nombre, edad, ingresos, familia}
+            datos.push(usuario); //Se añade el formulario al arreglo de beneficiarios
+            
+            localStorage.setItem("database", JSON.stringify(datos)); //Se guarda el arreglo en el localStorage para que persistan los datos, incluso cuando se cierre el navegador
+            printResults(datos); //Se imprime el arreglo de beneficiarios
+            document.querySelector("form").reset();
+        } else {
+            alert("Ingrese todos los campos");
+        }
+        
     });
 
     boton.addEventListener("click", function(e){ //Se registra evento al boton de filtrado
@@ -45,6 +52,10 @@ document.addEventListener("DOMContentLoaded", function(){ //Cuando el documento 
         //Para imprimir los resultados, primero se debe pasar un arreglo que contiene los datos a imprimir.
         //Después se recorrera este arreglo esto con el fin de obtener los datos de cada beneficiario para agregarlo a una estructura HTML, la cuál será la estructura de este beneficiario en la página y así poder visualizarlo
         resultados.innerHTML = "";//Se limpia el contenedor en donde se imprimen para realizar nuevamente el proceso sin repetir información anterior
+        if(data.length == 0){
+            resultados.innerHTML = "<h4 class='titulo__sindatos'>Sin beneficiarios inscritos</h4>"
+        }
+        
         data.forEach((usuario, index) => {
             let content = `<div class="resultados__elemento">
                     <h4>${index+1}.</h4>

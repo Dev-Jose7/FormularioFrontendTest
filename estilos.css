@@ -23,6 +23,18 @@ main {
     border-radius: 8px;
 }
 
+.titulo{
+    color: #4a90e2;
+    text-align: center;
+    margin: 10px;
+}
+
+.titulo__sindatos{
+    color: #333;
+    text-align: center;
+    margin: 5rem;
+}
+
 fieldset {
     border: 2px solid #4a90e2;
     padding: 20px;
